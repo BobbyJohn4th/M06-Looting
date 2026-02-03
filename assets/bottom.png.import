@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oyf7maqtrbvs"
-path="res://.godot/imported/balloon_top.png-9a1b3c12a8612c876b39eda27742c2e2.ctex"
+uid="uid://c3hwsm5ugp8qw"
+path="res://.godot/imported/bottom.png-f4bcc76aecf72632657cd54076420909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://practices/L5.P2.pop_the_balloon/balloon_top.png"
-dest_files=["res://.godot/imported/balloon_top.png-9a1b3c12a8612c876b39eda27742c2e2.ctex"]
+source_file="res://assets/bottom.png"
+dest_files=["res://.godot/imported/bottom.png-f4bcc76aecf72632657cd54076420909.ctex"]
 
 [params]
 
