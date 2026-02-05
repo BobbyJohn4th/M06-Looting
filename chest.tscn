@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://l0yorxmjaocd"]
+[gd_scene load_steps=14 format=3 uid="uid://l0yorxmjaocd"]
 
 [ext_resource type="Script" uid="uid://dbvd8qo6obv1n" path="res://chest.gd" id="1_x7mpe"]
 [ext_resource type="Shader" uid="uid://lio2wmbue2of" path="res://lessons/chest/group_outline.gdshader" id="2_bv3sb"]
+[ext_resource type="PackedScene" uid="uid://0i1g0cunmseb" path="res://lessons/items/apple.tscn" id="2_t3ekh"]
 [ext_resource type="Texture2D" uid="uid://bh7ste78awftu" path="res://lessons/chest/bottom.png" id="3_day8l"]
+[ext_resource type="PackedScene" uid="uid://ctqyr0ufyoktk" path="res://lessons/items/key.tscn" id="3_x6u83"]
 [ext_resource type="Texture2D" uid="uid://dk5jfabv25dj4" path="res://lessons/chest/top.png" id="4_t3ekh"]
+[ext_resource type="PackedScene" uid="uid://hdxqgspfcaur" path="res://lessons/items/potion.tscn" id="4_v4ow6"]
 [ext_resource type="Texture2D" uid="uid://d2wpwflxvxi73" path="res://lessons/chest/lock.png" id="5_x6u83"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v4ow6"]
@@ -15,21 +18,6 @@ shader_parameter/viewport_scale = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh7c0"]
 size = Vector2(103, 81)
-
-[sub_resource type="Animation" id="Animation_x7mpe"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasGroup/Top:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.39321157),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-5, -7), Vector2(83, -55), Vector2(120, 34)]
-}
 
 [sub_resource type="Animation" id="Animation_bv3sb"]
 length = 0.001
@@ -46,6 +34,21 @@ tracks/0/keys = {
 "values": [Vector2(-5, -6)]
 }
 
+[sub_resource type="Animation" id="Animation_x7mpe"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.39321157),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, -7), Vector2(83, -55), Vector2(120, 34)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_day8l"]
 _data = {
 &"RESET": SubResource("Animation_bv3sb"),
@@ -54,6 +57,7 @@ _data = {
 
 [node name="Chest" type="Area2D"]
 script = ExtResource("1_x7mpe")
+possible_items = Array[PackedScene]([ExtResource("2_t3ekh"), ExtResource("3_x6u83"), ExtResource("4_v4ow6")])
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 material = SubResource("ShaderMaterial_v4ow6")
@@ -68,12 +72,12 @@ position = Vector2(-5, -6)
 texture = ExtResource("4_t3ekh")
 
 [node name="Lock" type="Sprite2D" parent="CanvasGroup"]
-position = Vector2(-5, 12)
+position = Vector2(-5, 14)
 texture = ExtResource("5_x6u83")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-6, 2)
+position = Vector2(52, 41)
 shape = SubResource("RectangleShape2D_oh7c0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
