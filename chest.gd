@@ -10,20 +10,16 @@ func _ready() -> void:
 	mouse_exited.connect(_on_mouse_exited)
 	canvas_group.material.set_shader_parameter("line_thickness", 3.0)
 
-
 func set_outline_thickness(new_thickness: float) -> void:
 	canvas_group.material.set_shader_parameter("line_thickness", new_thickness)
-
 
 func _on_mouse_entered() -> void:
 	var tween := create_tween()
 	tween.tween_method(set_outline_thickness, 3.0, 6.0, 0.08)
 
-
 func _on_mouse_exited() -> void:
 	var tween := create_tween()
 	tween.tween_method(set_outline_thickness, 6.0, 3.0, 0.08)
-
 
 func _input_event(viewport: Node, event: InputEvent, shape_index: int):
 	var event_is_mouse_click: bool = (
@@ -35,7 +31,6 @@ func _input_event(viewport: Node, event: InputEvent, shape_index: int):
 	if event_is_mouse_click:
 		open()
 
-
 func open() -> void:
 	input_pickable = false
 
@@ -44,7 +39,7 @@ func open() -> void:
 	if possible_items.is_empty():
 		return
 
-	for current_index in range(randi_range(5, 35)):
+	for current_index in range(randi_range(5, 10)):
 		_spawn_random_item()
 
 
